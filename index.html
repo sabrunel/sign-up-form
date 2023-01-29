@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="hero">
+                <h1> Start your journey <span class="accent">now</span></h1>
+                <p class="tagline">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Voluptas blanditiis quis maxime fugit quisquam illum.
+                </p>
+            </div>
+            <p class="credentials">Photo by David Marcu</p>  
+        </div>
+        <div class="right">
+            <h2> Create new account </h2>
+            <p>Already signed up? <a href="#">Login</a></p>
+            <form action="#" class="signup-form">
+                <div class="form-group">
+                    <label for="first-name">First name</label>
+                    <input type="text" id="first-name" name="first-name">
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last name</label>
+                    <input type="text" id="last-name" name="last-name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email <span>*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone-nb">Phone number</label>
+                    <input type="text" id="phone-nb" name="phone-nb">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password <span>*</span></label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm password <span>*</span></label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <div class="form-group">
+                    <p class="helper-text">Fieds marked with a <span> * </span> are mandatory</p>
+                    <input type="submit" value="Sign up">
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>
