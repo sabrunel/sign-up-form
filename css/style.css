@@ -11,20 +11,23 @@
     --ff-serif: 'DM Serif Display', serif;
     --ff-sans-serif: 'DM Sans', sans-serif;
 
-    --fs-main:3.5em;
+    --fs-main: clamp(2.5em, 4vw, 5em) ;
     --fs-tagline:1.5em;
-    --fs-heading:2em;
-    --fs-paragraph:1.25em;
-    --fs-helper:0.95em;
+    --fs-heading: clamp(1.6em, 2.5vw, 2em);
+    --fs-paragraph:1.1em;
+    --fs-helper:0.9em;
     --fw-bold:700;
     --fw-medium:500;
     --fw-regular:400;
 }
 
-body {
+*, ::before, ::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+body {
     font-family: var(--ff-sans-serif);
     color: var(--clr-white);
 }
@@ -32,19 +35,18 @@ body {
 h1 {
     font-family: var(--ff-serif);
     font-size: var(--fs-main);
-    padding-bottom: 1rem;
+    padding-bottom: 4rem;
 }
 
 h2 {
     font-size: var(--fs-heading);
     font-weight: var(--fw-bold);
+    padding-bottom: 2rem;
 }
-
 
 p {
     font-size: var(--fs-paragraph);
     font-weight: var(--fw-regular);
-    padding: 1rem 0;
 }
 
 a {
@@ -63,7 +65,7 @@ label {
 }
 
 .container {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: grid;
     background-image: var(--bg-img);
@@ -71,19 +73,24 @@ label {
     overflow:auto;
 }
 
-.left,
 .right {
-    padding: 0rem 6rem;
+    padding: 1rem 2.5rem;
 }
 
 .signup-form {
     display: grid;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .form-group {
     display: grid;
-    gap: 0.1rem;
+}
+
+.form-group:last-child {
+    grid-column: 1 / -1;
+    margin: 1rem 0;
+    gap: 1rem;
+    text-align: center;
 }
 
 .hero {
@@ -99,9 +106,9 @@ label {
 
 .credentials {
     position: fixed;
-    left: -3rem;
-    bottom: 3rem;
-    transform: rotate(-90deg);
+    left: -3.5rem;
+    bottom: 5rem;
+    rotate: calc(-90deg);
 }
 
 
@@ -129,7 +136,7 @@ input[type=submit] {
     border: 2px solid var(--clr-primary);
     border-radius: 25px;
     outline:none;
-    padding: 1rem 2rem;
+    padding: 0.8rem 2rem;
     cursor: pointer;
     font-size: inherit;
     font-weight: inherit;
@@ -158,9 +165,23 @@ input[type=submit] {
         grid-template-columns: 1fr 1fr;
     }
 
+    .form-group:last-child {
+        margin: 1rem auto;
+        padding-top: 2rem;
+    }
+
+    .left,
+    .right {
+        padding: 0 6rem;
+    }
+
+    .left {
+        position: relative;
+        padding-top: 5vh;
+    }
+
     .hero {
         display: block;
-        padding-top: 2rem;
     }
 
 }
@@ -172,6 +193,10 @@ input[type=submit] {
         background-image:none;
     }
 
+    .left,
+    .right {
+        padding: 25vh 6rem;
+    }
     .left {
         background-image: var(--bg-img);
         background-size: cover;
@@ -179,13 +204,7 @@ input[type=submit] {
     }
 
     .right {
-        padding: 8rem 6rem;
         background-color: var(--clr-bg-100pct);
-    }
-
-    .hero {
-        display: block;
-        padding-top: 6rem;
     }
 }
 
