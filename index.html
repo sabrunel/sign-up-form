@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-
+    <script src="js/main.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -24,38 +24,45 @@
         </div>
         <div class="right">
             <h2> Create new account </h2>
-            <form action="#" class="signup-form">
+            <p class="instructions">Fieds marked with a <span> * </span> are mandatory</p>
+            <form action="#"  method="POST" class="signup-form" name="signup-form" novalidate>
                 <div class="form-group">
                     <label for="first-name">First name <span>*</span></label>
-                    <input type="text" id="first-name" name="first-name" required>
+                    <input type="text" id="first-name" name="first-name" pattern="^[A-Za-z]{1,70}$" placeholder="Thor" required>
+                    <p class="error-text"></p>
                 </div>
                 <div class="form-group">
                     <label for="last-name">Last name <span>*</span></label>
-                    <input type="text" id="last-name" name="last-name" required>
+                    <input type="text" id="last-name" name="last-name" pattern="^[A-Za-z]{1,70}$" placeholder="Odinson" required>
+                    <p class="error-text"></p>
                 </div>
                 <div class="form-group">
                     <label for="email">Email <span>*</span></label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" pattern="^[-\w\.]+@([-\w]+\.)+[-\w]{2,}$" placeholder="thor.odinson@mail.com" required >
+                    <p class="error-text"></p>
                 </div>
                 <div class="form-group">
-                    <label for="phone-nb">Phone number</label>
-                    <input type="text" id="phone-nb" name="phone-nb">
+                    <label for="phone-nb">Phone number</label> 
+                    <input type="tel" id="phone-nb" name="phone-nb" pattern="^[0-9]{10}$" placeholder=" ">
+                    <p class="error-text"></p>
+                    <p class="hint-text">10 digits</p>
                 </div>
                 <div class="form-group">
                     <label for="password">Password <span>*</span></label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" autocomplete="new-password" pattern="^[A-za-z0-9!@#$%^&*_=+-]{8,30}$" placeholder=" " required>
+                    <p class="error-text"></p>
+                    <p class="hint-text">8 to 30 characters</p>
                 </div>
                 <div class="form-group">
                     <label for="confirm-password">Confirm password <span>*</span></label>
-                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <input type="password" id="confirm-password" autocomplete="new-password" pattern="^[A-za-z0-9!@#$%^&*_=+-]{8,30}$" name="confirm-password" placeholder=" " required>
+                    <p class="error-text"></p>
                 </div>
                 <div class="form-group">
-                    <p class="helper-text">Fieds marked with a <span> * </span> are mandatory</p>
-                    <input type="submit" value="Sign up">
+                    <input type="submit" value="Sign up" id="submit">
                     <p>Already signed up? <a href="#">Login</a></p>
                 </div>
             </form>
-            
         </div>
     </div>
 </body>
