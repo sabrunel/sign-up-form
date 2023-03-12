@@ -79,7 +79,8 @@ label {
     font-weight: var(--fw-medium);
 }
 
-input {
+input,
+input[aria-invalid='false'] {
     border: none;
     border-bottom: 1px solid var(--clr-secondary);
     background-color: transparent;
@@ -161,14 +162,30 @@ input {
     visibility: hidden;
 }
 
-input:not(:focus):not(:placeholder-shown):invalid {  /* Avoids updating the input style while user is typing */ 
+/*
+Update the input sytling to invalid when:
+ - user is done typing and changes focus
+ - form is submitted
+*/
+input:not(:focus):not(:placeholder-shown):invalid,
+input[aria-invalid='true'] {  
     border-bottom: 2px solid var(--clr-invalid);
     background-color: var(--clr-bg-25pct);
 }
 
-input:not([type="submit"]):not(:focus):not(:placeholder-shown):valid { 
+input[aria-invalid='true'] + .error-text {
+    visibility: visible;
+}
+
+/* Apply valid styling to all valid form input fields except for password confirmation (and the submit button) */ 
+input:not([name="confirm-password"]):not([type="submit"]):not(:focus):not(:placeholder-shown):valid { 
     border-bottom: 2px solid var(--clr-valid);
     background-color: var(--clr-bg-25pct);
+}
+
+input:not([name="confirm-password"]):not(:placeholder-shown):valid + .error-text,
+input[aria-invalid='false'] + .error-text { 
+    visibility: hidden;
 }
 
 input:focus {
